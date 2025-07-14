@@ -16,7 +16,11 @@ import os
 # Remember to set this in your Spyder IPython Console using:
 # import os
 # os.environ["GOOGLE_API_KEY"] = "AIzaSyBljc87ks2gR1nr0LMQGsHsyfzSbJHLJLw"
-API_KEY = os.getenv("AIzaSyBljc87ks2gR1nr0LMQGsHsyfzSbJHLJLw")
+try:
+    API_KEY = st.secrets["AIzaSyBljc87ks2gR1nr0LMQGsHsyfzSbJHLJLw"] # This tries to get the key from Streamlit Secrets
+except KeyError:
+    # If the key isn't found in Streamlit Secrets, then try looking for it as an environment variable
+    API_KEY = os.getenv("AIzaSyBljc87ks2gR1nr0LMQGsHsyfzSbJHLJLw")
 
 if not API_KEY:
     st.error("Google API Key not found. Please set the GOOGLE_API_KEY environment variable in your Spyder IPython console or system.")
