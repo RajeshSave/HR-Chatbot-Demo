@@ -30,7 +30,7 @@ genai.configure(api_key=API_KEY)
 
 # --- Chatbot Initialization ---
 # Choose the Generative Model. 'gemini-pro' is good for text-based chats.
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-1.5-pro')
 
 # --- Streamlit UI Setup ---
 st.set_page_config(page_title="HR-Bot: Your AI HR Assistant", layout="centered")
